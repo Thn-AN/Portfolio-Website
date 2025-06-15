@@ -3,6 +3,7 @@
     --base-clr: #11121a;
     --line-clr: #42434a;
     --hover-clr: #222533;
+    --doublehover-clr: #181a24;
     --text-clr: #e6e6ef;
     --accent-clr: #5e63ff;
     --secondary-text-clr: #b0b3c1;
@@ -53,6 +54,7 @@ body{
     justify-content: flex-end;
     margin-bottom: 16px;
     .logo{
+        margin-top: .5em;
         font-weight: 600;
     }
 }
@@ -62,23 +64,25 @@ body{
         fill: var(--accent-clr);
     }
 }
-#sidebar a, #sidebar .dropdown-btn, #sidebar .logo{
+#sidebar a, #sidebar .logo{
     border-radius: .5em;
     padding: .85em;
     text-decoration: none;
     color: var(--text-clr);
     display: flex;
     align-items: center;
-    gap: 1em
+    gap: 1em;
+
 }
 #sidebar svg{
     flex-shrink: 0;
     fill: var(--text-clr);
+    transition: transform 200ms ease-in-out;
 }
-#sidebar a span, #sidebar .dropdown-btn span{
+#sidebar a span{
     flex-grow: 1;
 }
-#sidebar a:hover, #sidebar .dropdown-btn:hover{
+#sidebar a:hover{
     background-color: var(--hover-clr);
 }
 #sidebar .sub-menu{
@@ -87,19 +91,10 @@ body{
     transition: 300ms ease-in-out;
     > div{
         overflow: hidden;
-
     }
 }
 #sidebar .sub-menu.show{
     grid-template-rows: 1fr;
-}
-.dropdown-btn{
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    font: inherit;
-    cursor: pointer;
 }
 main{
     padding: min(30px, 7%)
@@ -116,29 +111,85 @@ main p{
     padding: min(3em, 15%);
     h2, p {margin-top: 1em;}
 }
-.dropdown-btn svg{
-    transition: 150ms ease;
-}
-.rotate svg:last-child{
-    rotate: 180deg;
+
+.rotate svg:last-child,
+.arrow-toggle.rotate svg {
+    transform: rotate(180deg);
 }
 #sidebar .sub-menu a{
     padding-left: 2em;
 }
-#toggle-btn{
+#toggle-btn {
+    padding-top: 5px;
     margin-left: auto;
     padding: 1em;
     border: none;
+    margin-top: .5em;
     border-radius: .5em;
-    background: none;
+    background: var(--hover-clr);
     cursor: pointer;
-    svg{
-        transition:rotate 150 ease;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 300ms ease-in-out;
 }
+
+#toggle-btn svg {
+    transition: transform 300ms ease-in-out;
+}
+
 #toggle-btn:hover{
-    background-color: var(--hover-clr)
+    background-color: var(--doublehover-clr)
 }
+
+/* projects button */
+.projects-wrapper {
+    display: flex;
+    align-items: center;
+    border-radius: .5em;
+    color: var(--text-clr);
+    gap: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.projects-wrapper:hover {
+    background-color: transparent;
+}
+
+.projects-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-clr);
+    flex-grow: 0.7;
+}
+
+.arrow-toggle {
+    background: var(--hover-clr);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: .5em;
+    transition: background-color 200ms ease;
+    height: 36px;
+    width: 36px;
+}
+
+.arrow-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-clr);
+    transition: transform 200ms ease-in-out;
+}
+
+.arrow-toggle:hover {
+    background-color: var(--doublehover-clr);
+}
+
 @media(max-width: 800px){
     body{
         grid-template-columns: 1fr;
