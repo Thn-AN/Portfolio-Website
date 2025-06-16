@@ -48,7 +48,7 @@ function copyEmail() {
         console.error('Failed to copy email: ', err);
     });
 }
-// darkmode/lightmode switch
+
 const themeSwitch = document.getElementById("theme-switch");
 
 function enableDarkMode() {
@@ -64,4 +64,14 @@ function disableDarkMode() {
 themeSwitch.addEventListener("click", () => {
   const isDark = document.documentElement.classList.contains("darkmode");
   isDark ? disableDarkMode() : enableDarkMode();
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const projectsItem = document.getElementById('projects-item');
+    
+    if (currentPage.startsWith('Project') || currentPage === 'projects.html') {
+        projectsItem.classList.add('active');
+    } else {
+        projectsItem.classList.remove('active');
+    }
 });

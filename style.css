@@ -306,6 +306,17 @@ main p{
 .top-btn:hover{
     background-color: var(--doublehover-clr);
 }
+#projects-item.active .projects-text{
+    color: var(--accent-clr);
+}
+#projects-item.active .projects-link svg{
+    fill: var(--accent-clr);
+}
+#projects-item.active .sub-menu a{
+    color:var(--text-clr) !important;
+}
+
+
 /* theme switch */
 #theme-switch {
     height: 30px;
