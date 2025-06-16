@@ -31,3 +31,37 @@ function closeAllSubmenus() {
         btn.classList.remove("rotate");
     });
 } 
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function copyEmail() {
+    const email = 'tnuualuu@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+        const emailSpan = document.querySelector('.copy-email');
+        const originalText = emailSpan.textContent;
+        emailSpan.textContent = 'Copied!';
+        setTimeout(() => {
+            emailSpan.textContent = originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy email: ', err);
+    });
+}
+// darkmode/lightmode switch
+const themeSwitch = document.getElementById("theme-switch");
+
+function enableDarkMode() {
+  document.documentElement.classList.add("darkmode");
+  localStorage.setItem("darkmode", "active");
+}
+
+function disableDarkMode() {
+  document.documentElement.classList.remove("darkmode");
+  localStorage.setItem("darkmode", null);
+}
+
+themeSwitch.addEventListener("click", () => {
+  const isDark = document.documentElement.classList.contains("darkmode");
+  isDark ? disableDarkMode() : enableDarkMode();
+});
