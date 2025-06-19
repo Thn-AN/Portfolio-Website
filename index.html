@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Thien-An Portfolio</title>
+    <!-- preload light/dark -->
     <script>
         (function() {
             const isDark = localStorage.getItem('darkmode') === 'active';
@@ -15,6 +16,7 @@
     <script type="text/javascript" src="app.js" defer></script>
 </head>
 <body>
+    <!-- sidebar -->
     <nav id="sidebar">
         <ul>
             <li>
@@ -73,7 +75,45 @@
             </li>
         </ul>
     </nav>
-    <main>
+<main>
+    <div class="profile-row">
+        <!-- Left Column -->
+        <div class="profile-column">
+            <!-- profile pic -->
+            <div class="profile-header" style="justify-content: space-between;">
+                <h2 style="margin: 0;">Thien-An Luu</h2>
+                <span class="interactive image-hover" data-type="aboutMe">
+                    <img src="images/myPicture.png" alt="Profile Image"/>
+                </span>
+            </div>
+
+            <p>
+                Studying at <span class="interactive" data-type="map"> Monash, Clayton, Australia
+                    <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M480-301q99-80 149.5-154T680-594q0-90-56-148t-144-58q-88 0-144 58t-56 148q0 65 50.5 139T480-301Zm0 101Q339-304 269.5-402T200-594q0-125 78-205.5T480-880q124 0 202 80.5T760-594q0 94-69.5 192T480-200Zm0-320q33 0 56.5-23.5T560-600q0-33-23.5-56.5T480-680q-33 0-56.5 23.5T400-600q0 33 23.5 56.5T480-520ZM200-80v-80h560v80H200Zm280-520Z"/></svg>
+                </span><br>
+
+                Bachelors of 
+                <span class="interactive" data-type="cs">Computer Science (Advanced)</span> & 
+                <span class="interactive" data-type="commerce">Commerce (Business Analytics)</span>
+            </p>
+            <!-- interactive box (location, cs, ba) -->
+            <div id="dynamic-content" class="content-box"></div>
+            </div>
+            <!-- Right Column -->
+            <div class="profile-column">
+                <p class="interactive" data-type="tetris" style="font-weight: bold;">
+                    Yes, this is me playing
+                </p>
+                <img src="images/68256ed4-466a-251b-f816-0ff07311c374.gif">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Hello World</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi augue ante, scelerisque vel vehicula at, elementum nec elit. Suspendisse imperdiet.</p>
+    </div>
+
         <div class="container">
             <h2>Hello World</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi augue ante, scelerisque vel vehicula at, elementum nec elit. Suspendisse imperdiet.</p>
@@ -90,10 +130,7 @@
             <h2>Hello World</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi augue ante, scelerisque vel vehicula at, elementum nec elit. Suspendisse imperdiet.</p>
         </div>
-        <div class="container">
-            <h2>Hello World</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi augue ante, scelerisque vel vehicula at, elementum nec elit. Suspendisse imperdiet.</p>
-        </div>
+<!-- footer -->
 <footer class="footer">
     <div class="footer-top">
         <div class="footer-left">
@@ -112,7 +149,7 @@
 
             <div class="footer-item">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/></svg>
-                <a href="images/Thien-An Luu Resume.pdf" target="_blank" class="resume-btn">View Resume</a>
+                <a href="images/Resume.pdf" target="_blank" class="resume-btn">View Resume</a>
             </div>
         </div>
 

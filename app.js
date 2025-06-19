@@ -75,3 +75,67 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsItem.classList.remove('active');
     }
 });
+
+// profile page
+document.addEventListener("DOMContentLoaded", function () {
+  const interactiveEls = document.querySelectorAll(".interactive");
+  const contentBox = document.getElementById("dynamic-content");
+  const contentMap = {
+    map: `
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10248.202174947068!2d145.13029125921045!3d-37.91029957505065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66acbf64673b9%3A0xfaf9b169a587104!2sMonash%20University%20Clayton%20Campus!5e1!3m2!1sen!2sau!4v1750090366215!5m2!1sen!2sau" 
+        width="100%" 
+        height="500em" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    `,
+    cs: `
+      <h3>Computer Science (Advanced)</h3>
+      <ul>
+        <li>Python, HTML, CSS, JavaScript, SQL</li>
+        <li>Data Structures & Algorithms</li>
+        <li>AI, Cybersecurity Interests</li>
+      </ul>
+    `,
+    commerce: `
+      <h3>Commerce (Business Analytics)</h3>
+      <ul>
+        <li>Excel, MYOB, </li>
+        <li>Marketing Strategy Simulations</li>
+        <li>Business Intelligence Tools</li>
+      </ul>
+    `,
+    tetris: `
+      <h3>Tetris</h3>
+      <ul>
+        <li>Former top 38 World, Aug 2020 </li>
+        <li>Former No. 2 Australia, Aug 2020 </li>
+        <li>I'm washed </li>
+        <img src="images/tetrisRanking">
+      </ul>
+    `,
+    aboutMe: `
+      <h3>About Me</h3>
+      <ul>
+        <li>
+          Passionate about 
+          <span style="color: var(--accent-clr)">Music, Coding & Games</span>
+        </li>
+      </ul>
+
+    `
+  };
+
+  interactiveEls.forEach(el => {
+    el.addEventListener("click", () => {
+        const type = el.getAttribute("data-type");
+        contentBox.innerHTML = contentMap[type] || "<p>Content not found.</p>";
+        contentBox.style.animation = "none";
+        void contentBox.offsetWidth;
+        contentBox.style.animation = null;
+    });
+  });
+});
