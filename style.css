@@ -4,15 +4,18 @@
     --line-clr: #ccc;
     --hover-clr: #ddd;
     --doublehover-clr: #ccc;
+    --trippleHover-clr: #ff5c8a;
     --text-clr: #11121a;
     --accent-clr: #5e63ff;
     --secondary-text-clr: #727272;
+
 }
 .darkmode{
     --base-clr: #11121a;
     --line-clr: #42434a;
     --hover-clr: #222533;
     --doublehover-clr: #181a24;
+    --trippleHover-clr: #ff5c8a;
     --text-clr: #e6e6ef;
     --accent-clr: #5e63ff;
     --secondary-text-clr: #b0b3c1;
@@ -394,12 +397,12 @@ main p{
     margin-bottom: 15px;
 }
 
-.profile-column img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--accent-clr);
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-clr);
 }
 
 .profile-info h2 {
@@ -418,6 +421,52 @@ main p{
     color: var(--accent-clr);
     font-size: 0.9em;
 }
+
+.shake-icon {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+    transform-origin: bottom center;
+}
+
+.shake-icon:hover {
+  animation: shake 0.5s ease-in-out 1;
+  animation-delay: 0s;
+}
+
+@keyframes shake {
+  0%   { transform: scale(1) rotate(0deg); }
+  20%  { transform: scale(1.1) rotate(-15deg); }
+  40%  { transform: scale(1.1) rotate(15deg); }
+  60%  { transform: scale(1.1) rotate(-10deg); }
+  80%  { transform: scale(1.1) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.tetris-img-container {
+  margin-top: 1em;
+  width: 100%;
+  height: auto;
+}
+
+.tetris-img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 0.8em;
+  border: 1px solid var(--line-clr);
+  display: block;
+}
+
+.tetris-image {
+  display: block;
+  margin-top: 1em;
+  width: 100%;
+  max-height: 300px;
+  border-radius: 0.8em;
+  border: 1px solid var(--line-clr);
+  object-fit: contain;
+}
+
 /* Right column specific styles */
 .profile-column:last-child {
     display: flex;
@@ -454,7 +503,12 @@ main p{
 
 .interactive:hover {
   background-color: var(--accent-clr);
-  color: #ff5c8a;
+  color: var(--trippleHover-clr);
+}
+
+.interactive:hover .shake-icon {
+  animation: shake 0.5s ease-in-out 1;
+  transform-origin: center;
 }
 
 .image-hover {
@@ -481,7 +535,7 @@ main p{
 
 .image-hover:hover {
   transform: scale(1.1);
-  border-color: #ff5c8a;
+  border-color: var(--trippleHover-clr);
   background-color: var(--hover-clr);
 }
 
@@ -533,6 +587,58 @@ main p{
     transform: translateY(0);
   }
 }
+
+/* index education tab */
+.education-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+/* top box for uni/hs */
+.tab-box {
+    background-color: var(--hover-clr);
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+.tab-buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+.tab-button {
+    font-weight: bold;
+    flex: 1;
+    padding: .7em 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: var(--doublehover-clr);
+    color: var(--text-clr);
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.tab-button:hover {
+    background-color: color-mix(in srgb, var(--accent-clr) 80%, white);
+}
+.tab-button.active {
+    background-color: color-mix(in srgb, var(--accent-clr) 80%, black);
+    color: var(--text-clr);
+    flex: 1.8;
+}
+
+/* index contentbox educaiton */
+.tab-pane {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.tab-pane.active {
+    display: block;
+    opacity: 1;
+}
+
+
+
+
 /* phone screens */
 @media(max-width: 800px){
     body{
